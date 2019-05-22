@@ -33,7 +33,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('ref')->nullable();
             $table->foreign('ref')->references('id')->on('users')->onDelete("set null");
             $table->boolean('ref_status')->nullable()->default(false);
-            $table->string('ref_code')->unique()->default('text');
+            $table->string('ref_code')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
@@ -41,7 +41,7 @@ class CreateUsersTable extends Migration
             CREATE TRIGGER add_ref_code BEFORE INSERT ON users 
             FOR EACH ROW 
             BEGIN 
-                SET NEW.ref_code = CONCAT("GC_", NEW.id); 
+                SET NEW.ref_code = CONCAT("GC_", LAST_INSERT_ID()); 
             END;
         ');
     }

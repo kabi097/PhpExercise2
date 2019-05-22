@@ -10,6 +10,13 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    // public static function boot() {
+	//     parent::boot();
+	//     static::created(function($user) {
+	//         $user->update(['ref_code' => "GC_".$user->id]); 
+	//     });
+	// }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -38,10 +45,6 @@ class User extends Authenticatable
     ];
 
     public function referringUsers() {
-        return $this->hasMany('App\User', 'id', 'ref');
-    }
-
-    public function referredUser() {
-        return $this->hasOne('App\User', 'ref', 'id');
+        return $this->hasMany('App\User', 'ref', 'id');
     }
 }

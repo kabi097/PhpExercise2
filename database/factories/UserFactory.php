@@ -17,7 +17,7 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(User::class, function (Faker $faker) {
-    $user_ref = (User::all()->count()>0) ? User::all()->random() : false;
+    // $user_ref = (User::all()->count()>0) ? User::all()->random() : false;
     return [
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
@@ -29,8 +29,8 @@ $factory->define(User::class, function (Faker $faker) {
         'votes' => rand(0,100), 
         'geo' => $faker->address, 
         'lang' => $faker->languageCode,
-        'ref_status' => ($user_ref) ? true : null , 
-        'ref' => ($user_ref) ? $user_ref->id : null ,
+        // 'ref_status' => ($user_ref) ? true : null , 
+        // 'ref' => ($user_ref) ? $user_ref->id : null ,
         //'ref_code' => "CG_".$user_ref->id,
     ];
 });

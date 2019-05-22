@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,8 +12,14 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 20)->create()->each(function ($user) {
-            $user->save(factory(App\Post::class)->make());
+        factory(User::class, 20)->create()->each(function ($user) {
+            $user->save();
         });
+        // User::all()->each(function ($user) {
+        //     if(rand(0,1)==1) {
+        //         $ref_user = User::where('id', '<', $user->id)->get()->random();
+        //         $ref_user->referringUsers()->save($user);
+        //     }
+        // });
     }
 }
