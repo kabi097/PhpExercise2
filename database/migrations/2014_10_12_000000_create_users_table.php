@@ -38,12 +38,12 @@ class CreateUsersTable extends Migration
             $table->timestamp('deleted_at')->nullable();
         });
         DB::unprepared('
-        CREATE TRIGGER add_ref_code BEFORE INSERT ON users 
-        FOR EACH ROW 
-        BEGIN 
-        SET NEW.ref_code = CONCAT("GC_", NEW.id); 
-        END;
-    ');
+            CREATE TRIGGER add_ref_code BEFORE INSERT ON users 
+            FOR EACH ROW 
+            BEGIN 
+                SET NEW.ref_code = CONCAT("GC_", NEW.id); 
+            END;
+        ');
     }
 
     /**
