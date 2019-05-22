@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return App\User::paginate();
-});
+// Route::get('/user', function (Request $request) {
+//     return User::paginate();
+// });
+
+Route::resource('users', 'UserController');
