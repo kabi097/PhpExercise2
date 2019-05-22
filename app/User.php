@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'active', 'banned', 'notifable_email', 'email', 'email_verified_at', 'avatar', 'votes', 'steam_id', 'facebook_id', 'google_id', 'geo', 'lang', 'votes', 'ref_status', 'ref_code',
+        'active', 'banned', 'notifable_email', 'email', 'email_verified_at', 'avatar', 'votes', 'steam_id', 'facebook_id', 'google_id', 'geo', 'lang', 'votes', 'ref_status',
     ];
 
     /**
@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function referringUsers() {
+        return $this->hasMany('App\User', 'id', 'ref');
+    }
+
+    public function referredUser() {
+        return $this->hasOne('App\User', 'ref', 'id');
+    }
 }
