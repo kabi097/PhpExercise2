@@ -16,6 +16,6 @@ Projekt tabeli znajduje się w pliku migracji (katalog __migrations__). Obsługa
     - ```&order=desc``` - odwrotna kolejność
 
 - ```GET http://localhost:8000/api/users/{id}``` - Wyświetlanie informacji o użytkowniku
-- ```PUT|PATCH api/users/{id}``` - Aktualizacja danych użytkownika
-- ```POST api/users``` - Tworzenie nowego użytkownika
-- ```DELETE api/users/{user}``` - Kasowanie użytkownika
+- ```PUT|PATCH http://localhost:8000/api/users/{id}``` - Aktualizacja danych użytkownika
+- ```POST http://localhost:8000/api/users``` - Tworzenie nowego użytkownika
+- ```DELETE http://localhost:8000/api/users/{id}``` - Kasowanie użytkownika
