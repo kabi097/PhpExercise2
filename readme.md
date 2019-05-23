@@ -3,10 +3,11 @@ Projekt tabeli znajduje się w pliku migracji (katalog __migrations__). Obsługa
 
 ## Instrukcja
 
-1. Konfiguracja połączenia z MySQL w pliku ```.env```
-2. ```php artisan migrate:fresh```
-3. ```php artisan db:seed```
-4. ```php artisan serve```
+1. ```composer install```
+2. Konfiguracja połączenia z MySQL w pliku ```.env```
+3. ```php artisan migrate:fresh```
+4. ```php artisan db:seed```
+5. ```php artisan serve```
 
 ## Dokumentacja REST API
 - ```GET http://localhost:8000/api/users``` - Lista użytkowników
